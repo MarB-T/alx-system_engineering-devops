@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -anmpX
+ls -anmpX | sort .* -prune
