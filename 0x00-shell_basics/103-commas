@@ -1,0 +1,2 @@
+#!/bin/bash
+ls -mpX | sed '$a\\n'
