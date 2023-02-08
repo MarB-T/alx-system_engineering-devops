@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -vamipX | sed '$a\\n'
+ls -ampX | sort -d | sed '$a\\n'
