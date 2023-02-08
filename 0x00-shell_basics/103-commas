@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -mpX | sed '$a\\n'
+ls -amipX | sed '$a\\n'
