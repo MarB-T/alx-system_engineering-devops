@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -ampx | sort -d
+ls -ampX | sort -d
