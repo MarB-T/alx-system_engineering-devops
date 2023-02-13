@@ -1,1 +1,1 @@
-8. Save state of current working directory in a file: ls -la > <file>
+9. Duplicate last line of a file: tail -1 <file> >> <file>
