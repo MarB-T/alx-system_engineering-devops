@@ -1,1 +1,1 @@
-7. Using special characters in file names
+8. Save state of current working directory in a file: ls -la > <file>
