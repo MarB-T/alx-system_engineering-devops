@@ -11,3 +11,4 @@
 9. Variable division: echo $(($POWER/$DIVIDE))
 10. Eponents of variables: echo $(($BREATH**$LOVE))
 11. Binary to decimal: echo "ibase=2; $BINARY" | bc
+12. Alphabetic combination except one: echo -e {a..z}{a..z} | grep -v "oo"
