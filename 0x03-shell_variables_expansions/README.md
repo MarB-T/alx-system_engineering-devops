@@ -10,3 +10,4 @@
 8. Adding 128 to variable TRUEKNOWLEDGE: 128+
 9. Variable division: echo $(($POWER/$DIVIDE))
 10. Eponents of variables: echo $(($BREATH**$LOVE))
+11. Binary to decimal: echo "ibase=2; $BINARY" | bc
