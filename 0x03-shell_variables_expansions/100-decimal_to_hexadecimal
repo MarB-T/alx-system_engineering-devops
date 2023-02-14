@@ -1,2 +1,2 @@
 #!/bin/bash
-echo  -e $(("\x$DECIMAL"))
+echo $((10#${DECIMAL})) | echo -e "\x"
