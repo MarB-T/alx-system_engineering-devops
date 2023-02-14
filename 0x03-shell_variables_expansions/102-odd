@@ -1,2 +1,2 @@
 #!/bin/bash
-cut -r -f1/2
+echo $((cut -r -f1/2))
