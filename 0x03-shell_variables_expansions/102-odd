@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $((cut -r -f1/2))
+while read line; do read; echo $line; done
