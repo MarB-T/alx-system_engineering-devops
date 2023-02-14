@@ -1,2 +1,3 @@
 	Shell variables expansion
 0. Alias
+1. Print user using variable $USER
