@@ -4,3 +4,4 @@
 1. Add to PATH
 3. Counth directories in $PATH
 4. Print environment variables
+5. Print all variables and functions
