@@ -1,2 +1,2 @@
 #!/bin/bash
-cut -f1%2
+cut -r -f1/2
