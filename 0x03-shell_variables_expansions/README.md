@@ -8,3 +8,4 @@
 6. Declare local variable best with values School: BEST=School
 7. Declare global variable BEST value, School: export BEST=School
 8. Adding 128 to variable TRUEKNOWLEDGE: 128+
+9. Variable division: echo $(($POWER/$DIVIDE))
