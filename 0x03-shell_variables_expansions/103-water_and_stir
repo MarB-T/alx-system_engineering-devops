@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $bestchol#$RESULTS=$(($water#${WATER}+$stir#${STIR}))
+printf "%o\n" $((5#$(echo $WATER | tr 'water' '12345')+(5#$(echo STIR | tr 'stir.' '01234')))) | tr '1234567' 'bestchol'
