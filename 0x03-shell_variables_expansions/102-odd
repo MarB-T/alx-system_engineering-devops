@@ -1,2 +1,2 @@
 #!/bin/bash
-while read line; do read; echo $line; done
+paste -d, -- | cut -d, -f1
