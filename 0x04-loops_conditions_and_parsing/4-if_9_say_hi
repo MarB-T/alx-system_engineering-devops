@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#Print string 10 times and check when count is 9
+
+STRING="Best School"
+STRING2="Hi"
+count=1
+
+while [ $count -le 10 ]
+do
+	echo "$STRING"
+	if [ $count == 9 ]
+	then
+		echo "$STRING2"
+	fi
+	count=$((count + 1))
+done
