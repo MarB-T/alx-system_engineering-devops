@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#Script with if elif else statements inside a while loop
+
+STRING="Best School"
+STRING1="bad luck"
+STRING2="good luck"
+count=1
+
+while [ $count -le 10 ]
+do
+	if [ $count = 4 ]
+	then
+		echo "$STRING1"
+	elif [ $count = 8 ]
+	then
+		echo "$STRING2"
+	else
+		echo "$STRING"
+	fi
+	count=$((count + 1))
+done
