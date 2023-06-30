@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+#Script to display time for 12hrs and 59 minutes
+
+STRING="Hour"
+Hour=0
+Minute=1
+
+echo "$STRING: $Hour"
+while [ $Hour -le 12 ]
+do
+	echo "$Minute"
+	if [ $Minute = 59 ]
+	then
+		Hour=$((Hour +1))
+		if [ $Hour -lt 13 ]
+		then
+			echo "$STRING: $Hour"
+		fi
+		Minute=0
+	fi
+	Minute=$((Minute + 1))
+done
