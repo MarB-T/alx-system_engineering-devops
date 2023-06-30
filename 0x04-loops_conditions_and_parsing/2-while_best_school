@@ -6,6 +6,6 @@ count=1
 
 while [ $count -le 10 ]
 do
-	echo $STRING
+	echo "$STRING"
 	count=$((count + 1))
 done
