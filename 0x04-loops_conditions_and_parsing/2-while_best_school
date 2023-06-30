@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#Script to display "Best School" 10 time using while
+
+STRING="Best School"
+count=1
+
+while [ $count -le 10 ]
+do
+	echo $STRING
+	count=$((count + 1))
+done
