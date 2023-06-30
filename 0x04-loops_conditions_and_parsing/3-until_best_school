@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #Script to display "Best School" 10 time using until
 STRING="Best School"
-count=1
+count=0
 until [ $count -ge 10 ]
 do
 	echo "$STRING"
