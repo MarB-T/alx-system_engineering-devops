@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# Check if running as root
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root" 
+   exit 1
+fi
+
+# Get listening ports and associated programs
+listening_ports=$(ss -lntu | awk 'NR>1 {print $5,$6}')
+
+# Print header
+printf "%-8s %-22s %s\n" "Proto" "Local Address" "PID/Program name"
+echo "----------------------------------------------"
+
+# Iterate through each listening port
+while IFS= read -r line; do
+    proto=$(echo "$line" | awk '{print $1}')
+    local_address=$(echo "$line" | awk '{print $4}')
+    program=$(echo "$line" | awk -F'users:' '{print $2}' | awk '{print $1}')
+
+    # Extract PID from program information
+    pid=$(echo "$program" | awk -F'[/,]' '{print $1}')
+
+    # Get program name from PID
+    program_name=$(ps -p "$pid" -o comm=)
+
+    # Print proto, local address, PID, and program name
+    printf "%-8s %-22s %s\n" "$proto" "$local_address" "$pid/$program_name"
+done <<< "$listening_ports"
