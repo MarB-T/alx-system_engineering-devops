@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 #script to generate an RSA key pair named shcool and passphrase betty assigned
 
-ssh-keygen -t rsa -b 4096 -f ~/.ssh/school -N "betty"
-
+ssh-keygen -t rsa -b 4096 -f school -N "betty"
