@@ -1,11 +1,33 @@
 #!/usr/bin/env bash
-#Script to configure nginx to redirect
+#Script to configure server to redirect
 
-sudo apt-get update
-sudo apt-get install -y nginx
+# Update package list
+sudo apt update
 
-echo "Hello World!" | sudo tee /var/www/html/index.html
-string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
-sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+# Install Nginx
+sudo apt install nginx -y
 
-sudo service nginx restart
+# Create a new server block configuration file for redirection
+sudo tee /etc/nginx/sites-available/redirect_config <<EOF
+server {
+    listen 80;
+    server_name your_domain.com;
+
+    location /redirect_me {
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
+
+    # You can add other configurations for your domain here
+
+    # Include other server blocks if needed
+}
+EOF
+
+# Create a symbolic link to enable the new server block
+sudo ln -s /etc/nginx/sites-available/redirect_config /etc/nginx/sites-enabled/
+
+# Test Nginx configuration
+sudo nginx -t
+
+# Reload Nginx to apply the changes
+sudo /etc/init.d/nginx reload
