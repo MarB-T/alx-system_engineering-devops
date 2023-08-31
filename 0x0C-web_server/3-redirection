@@ -11,7 +11,7 @@ sudo apt install nginx -y
 sudo tee /etc/nginx/sites-available/redirect_config <<EOF
 server {
     listen 80;
-    server_name your_domain.com;
+    server_name blackpivot.tech;
 
     location /redirect_me {
         return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
