@@ -11,8 +11,8 @@ new_config=\
 backend marbet-b
         mode http
         balance roundrobin
-        server 153875-web-01 100.26.142.48:80 check
-        server 153875-web-02 18.233.62.129:80 check
+        server 247079-web-01 52.87.154.89:80 check
+        server 247079-web-02 54.174.246.6:80 check
 frontend marbet-f
         bind *:80
         mode http
