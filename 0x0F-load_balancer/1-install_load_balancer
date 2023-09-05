@@ -22,5 +22,5 @@ echo "$new_config" >> /etc/haproxy/haproxy.cfg
 if [ "$(pgrep -c haproxy)" -le 0 ]; then
 	sudo service haproxy start
 else
-	sudo sevice haproxy restart
+	sudo service haproxy restart
 fi
