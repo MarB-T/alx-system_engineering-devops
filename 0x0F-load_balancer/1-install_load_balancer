@@ -18,7 +18,7 @@ frontend marbet-f
         mode http
         default_backend marbet-b
 "
-echo "$s_config" | sudo tee -a /etc/haproxy/haproxy.cfg
+echo "$new_config" | sudo tee -a /etc/haproxy/haproxy.cfg
 
 echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
 
