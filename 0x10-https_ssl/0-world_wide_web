@@ -1,19 +1,25 @@
 #!/usr/bin/env bash
 # script to will display information about subdomains
 
-domain=$1
 array=( "www" "lb-01" "web-01" "web-02" )
 
-if [ $# -eq 2 ] ; then
-    subdomain=$2
-    echo -n "The subdomain $2"
-    echo
-    dig $2.$1 | grep -A1 'ANSWER SECTION:' | tail -n 1 | awk '{print " is a " $4 " record and points to " $5}'
-else
-    for i in "${array[@]}" ; do
-	echo -n "The subdomain $i"
-	echo
-	dig $i.$1 | grep -A1 'ANSWER SECTION:' | tail -n 1 | awk '{print " is a "$4 " record and points to " $5}'
+Digger() {
+    subdomain=$1
+    domain=$2
+
+    dig "$subdomain.$domain" | grep -A1 'ANSWER SECTION:' | tail -1 | awk -v s="$subdomain" 'BEGIN { FS = " " } ; { print "The subdomain " s " is a " $4 " record and points to " $5 }'
+}
+
+if [ $# -eq 1 ];
+then
+    domain="$1"
+    for i in "${array[@]}"
+    do
+        Digger "$i" "$domain"
     done
-fi
-echo
+elif [ $# -eq 2 ];
+then
+    domain=$1
+    sub=$2
+    Digger "$sub" "$domain"
+fi;
