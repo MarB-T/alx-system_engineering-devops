@@ -51,7 +51,8 @@ Once the certificates have been exchanged, the browser and server can start exch
 
 Now if the if the domain we are accessing (in this case google.com) uses a single server, then the requests would be handled by the server. But in a case where there are multiple servers as is the case for google, there is a load-balancer in place that will then depending on the configured algorithm determine which server to send our request.
 
-The web server that receives the request then sends the request to the web application which in turn does any processing required as per the received request, generates the html code and sends it back to the web server.
+
+The web server (which are protected by firewalls) that receives the request then sends the request to the web application which in turn does any processing required as per the received request, generates the html code and sends it back to the web server. The web application retrieves and writes to a database as required.
 
 The web server then sends back the html to the browser either through the load-balancer or directly performing all the necessary encryption to secure the data sent.
 
