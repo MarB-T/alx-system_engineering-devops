@@ -1,0 +1,58 @@
+What happens when you type https://www.google.com in your browser and press Enter?
+
+This has been for a while a common interview question for roles pertaining software engineering. It still is, they say.
+
+Full disclosure: This is part of the curriculum of The ALX Software Engineering program, that is why I cannot personally confirmed to have been asked this question in an interview. This should not make you cast any aspersions into the content of this blog post as I have been well equipped to answer it. Plus its 2023 the internet is full of resources including the recent AI tools you can ask the question and it will give a pretty good reply.
+
+That said back to the "classic" interview question. What happens when you type https://www.google.com in your browser and press Enter?
+
+There is much that goes on behind the scenes after you hit enter and when you get the results displayed on your browser. Even as you press each key stroke there are several activities that your device undertake be it a physical keyboard or a touch screen. This is where Electronics Engineering and Software Engineering fuse together you may say. Most electronic/computer devices run in a cyclic manner in very high frequencies the human eye cannot perceive. The operating system (Windows, Linux based, IOS, android, etc) are the main running programs with so many helper scripts/programs to handle different activities. An example is interrupt handlers that listen if there are interrupts like buttons being pressed. So yes every keystroke in itself triggers a number of activities that ends up displaying the characters in the appropriate area on the screen.
+
+In a nutshell browsers are applications used to retrieve information from remote servers to the local machine. For this to occur, a connection has to be established between your local device with the remote server. And for seamless communication, a number of factors need to be taken into account. Such factors include; reliability, speed, integrity of the information shared, etc.
+
+For everything we are going to talk about to make sense, there are important terms that we need to define.
+    1. DNS request:
+           DNS stands for Domain Name System. This is a request by the browser to a DNS server. The purpose of a DNS request is to resolve a human-readable domain name (like https://www.google.com) into an IP address (such as 192.0.2.1) that can be used by network devices to locate and communicate with the target server.
+    2. TCP/IP:
+           TCP/IP stands for Transmission Control Protocol/Internet Protocol.
+           Transmission Control Protocol (TCP) is responsible for establishing and maintaining a reliable and connection-oriented data transfer between devices. It ensures that data sent from one device arrives intact and in the correct order at the destination.
+           Internet Protocol (IP) is responsible for addressing and routing data packets across networks. It assigns unique IP addresses to devices on a network, allowing them to identify each other and communicate. They are like phone numbers for computers in a network.
+    3. Firewall:
+           A firewall is a network security device or software application designed to monitor and control incoming and outgoing network traffic based on predetermined security rules. Its main purpose is to act as a barrier or filter between a trusted internal network and “untrusted” external networks (such as the internet) to protect the internal network from unauthorized access, cyberattacks, and potential threats.
+
+    4. HTTPS/SSL:
+           HTTPS (Hypertext Transfer Protocol Secure) and SSL (Secure Sockets Layer) are technologies and protocols designed to provide secure and encrypted communication over the internet. HTTPS is a combination of HTTP and SSL/TLS (Transport Layer Security), and it is used to protect the confidentiality and integrity of data exchanged between a user's web browser and a website's server. All data transmitted using this protocol are encrypted and can only be decrypted by the two communicating devices. Secure connections are indicated by a padlock on the address bar by browsers.
+    5. Load-balancer:
+           A load balancer is a network device or software application that distributes incoming network traffic or application requests across multiple servers or resources in a way that ensures optimal resource utilization, high availability, and improved responsiveness.
+    6. Web server:
+           A web server is a software application or hardware device responsible for serving and delivering web content, such as web pages, images, videos, and other resources, to client devices (typically web browsers) over the internet or an intranet. You can think of this as the remote computer from which we want to retrieve information/data.
+    7. Application server:
+           Think of an hotel, now the person running/managing kitchen affairs (ensuring customers are served what they request, managing storage of cutleries & dishes , raw food etc) is similar to the application server.
+           An application server is a software framework or platform that provides a runtime environment for executing and managing the execution of web applications, services, and middleware components. It plays a crucial role in the architecture of modern web applications by handling various application-level tasks, including processing business logic, managing data, and facilitating communication between different software components.
+    8. Database:
+           A database is a structured collection of data organized in a way that allows for efficient storage, retrieval, and manipulation of information.
+
+
+Now that we have an idea what these terms mean, we can start on the journey of retrieving https://www.google.com.
+The browser’s first mission is to obtain the IP address of the domain entered, it first looks in its cache, if its available it proceeds to the next step, if its not available it sends a request up depending on how its connected to the internet.
+
+After obtaining the IP address, the next step is to establish a TCP connection.
+To establish a TCP connection, the browser sends a SYN (synchronize) packet to the server. The SYN packet contains a sequence number, which is a unique number that is used to identify the connection.
+The server responds to the SYN packet with a SYN-ACK (synchronize acknowledgment) packet. The SYN-ACK packet contains the server's sequence number and an acknowledgment of the browser's sequence number.
+The browser then sends an ACK (acknowledgment) packet to the server. The ACK packet acknowledges the server's sequence number.
+Once the three packets have been exchanged, the TCP connection is established.
+
+
+
+
+The next step is to make the connection secure.
+To establish a secure connection, the browser and server exchange certificates. A certificate is a digital document that contains the public key of the device. The public key is used to encrypt the data that is transmitted to the device.
+Once the certificates have been exchanged, the browser and server can start exchanging data. The browser will encrypt the data before it is transmitted to the server, and the server will decrypt the data before it is sent to the browser.
+
+Now if the if the domain we are accessing (in this case google.com) uses a single server, then the requests would be handled by the server. But in a case where there are multiple servers as is the case for google, there is a load-balancer in place that will then depending on the configured algorithm determine which server to send our request.
+
+The web server that receives the request then sends the request to the web application which in turn does any processing required as per the received request, generates the html code and sends it back to the web server.
+
+The web server then sends back the html to the browser either through the load-balancer or directly performing all the necessary encryption to secure the data sent.
+
+The browser after receiving and confirming that all the packets were received renders HTML code and displays googles home page.
