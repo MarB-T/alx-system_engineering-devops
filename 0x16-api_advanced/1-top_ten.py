@@ -14,7 +14,7 @@ def top_ten(subreddit):
     headers = {'User-Agent': 'Reddit apI'}
     url = "http://www.reddit.com/r/{}/top/.json".format(subreddit)
     response = requests.get(url, params=params,
-                       headers=headers)
+                            headers=headers)
     if response.status_code != 200:
         print('None')
         return

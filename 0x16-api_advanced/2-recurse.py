@@ -18,6 +18,6 @@ def recurse(subreddit, hot_list=[], after=None):
             hot_list.append(obj['data'].get('title'))
         if after is not None:
             recurse(subreddit, hot_list, after)
-        return(hot_list)
+        return (hot_list)
     except:
-        return(None)
+        return (None)
